@@ -1,4 +1,4 @@
-# TCChibiOFS — Total Commander File System Plugin
+# TCChibiOSFS — Total Commander File System Plugin
 
 WFX-Plugin für **Total Commander** zur Anbindung von ChibiOS-basierten
 USB-Geräten per serieller Shell. Erkannte Geräte:
