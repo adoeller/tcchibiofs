@@ -1,4 +1,7 @@
 # TCChibiOSFS — Total Commander File System Plugin
+**Sprache / Language:** [Deutsch](#deutsch) · [English](#english)
+
+## Deutsch
 
 WFX-Plugin für **Total Commander** zur Anbindung von ChibiOS-basierten
 USB-Geräten per serieller Shell. Erkannte Geräte:
@@ -42,7 +45,7 @@ USB-Geräten per serieller Shell. Erkannte Geräte:
 ## Voraussetzungen
 
 - Windows 7 oder neuer
-- Total Commander 9.0 oder neuer (64-bit empfohlen)
+- Total Commander 9.0 oder neuer (64-bit)
 - Mayhem-Firmware ≥ 2.0 auf HackRF/PortaPack
 - Flipper Zero mit aktueller Firmware (Stock, Unleashed, Momentum, Xtreme — alle okay)
 - USB-Kabel (die üblichen)
@@ -50,19 +53,18 @@ USB-Geräten per serieller Shell. Erkannte Geräte:
 ## Installation (empfohlen: integrierter TC-Installer)
 
 1. Build-Artefakte holen:
-   - `tcchibiofs.wfx` (32-bit) und/oder
-   - `tcchibiofs.wfx64` (64-bit)
-2. Beide Dateien zusammen mit `pluginst.inf` in ein ZIP packen.
+   - `chibiosfs.wfx64` (64-bit)
+2. Alle Dateien zusammen mit `pluginst.inf` in ein ZIP packen.
 3. Das ZIP im Total Commander öffnen (einfach anklicken) — er erkennt
    die Plugin-Installation und fragt nach Zielverzeichnis.
 
 ## Manuelle Installation
 
-1. `tcchibiofs.wfx` (+ `tcchibiofs.wfx64`) in einen Ordner kopieren,
-   z. B. `%APPDATA%\GHISLER\tcchibiofs\`
+1. `chibiosfs.wfx64` in einen Ordner kopieren,
+   z. B. `%COMMANDER_PATH%\plugins\wfx\chibiosfs\`
 2. Total Commander: **Konfiguration → Optionen → Plugins → Konfigurieren**
    (bei „FS-Plugins")
-3. **Neue**, `tcchibiofs.wfx` auswählen, Namen vergeben (z. B.
+3. **Neue**, `chibiosfs.wfx64` auswählen, optional Namen vergeben (z. B.
    „ChibiOS Devices")
 4. Über **Netzwerkumgebung** (bzw. `\\` eintippen) → „ChibiOS Devices"
    aufrufen
@@ -75,15 +77,7 @@ USB-Geräten per serieller Shell. Erkannte Geräte:
 build-lazarus.bat both
 ```
 
-liefert `tcchibiofs.wfx` und `tcchibiofs.wfx64` im Projektverzeichnis.
-
-### Delphi
-
-```cmd
-rem einmalig: Delphi-Umgebung laden
-call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"
-build.bat both
-```
+liefert `chibiosfs.wfx64` im Projektverzeichnis.
 
 ## Pfad-Mapping
 
@@ -113,9 +107,6 @@ eines gemeinsamen `/`.
 - **Keine Unicode-Dateinamen.** Das Plugin exportiert ausschließlich
   ANSI-Varianten der WFX-Funktionen. Geräte-Dateinamen verwenden
   sowieso ASCII.
-- **Keine Thumbnails, kein Executefile.** Würde erfordern, dass das
-  Plugin auf dem Zielgerät Datei-Inhalte interpretiert — ausserhalb des
-  Scopes dieses Plugins.
 - **Flipper im Debug-/Build-Modus** kann gelegentlich das `Ready?` vor
   dem eigentlichen Datenstrom abweichend platzieren; das Plugin ist
   tolerant, bricht aber im Zweifel mit Fehlermeldung ab statt
@@ -125,7 +116,7 @@ eines gemeinsamen `/`.
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│ Total Commander <──> tcchibiofs.wfx / .wfx64           │
+│ Total Commander <──> chibiosfs.wfx / .wfx64           │
 ├────────────────────────────────────────────────────────┤
 │ uWfxMain          (WFX-Exports, Plugin-Lifecycle)       │
 │ uDeviceRegistry   (offene Verbindungen, Pfad-Split)     │
@@ -170,8 +161,9 @@ zum Gerät passt — ggf. neu oben in der Tabelle ergänzen.
   Protokoll beantwortet. Aktuelle Flipper-Firmware tut das, sehr alte
   Builds (vor 2022) evtl. nicht — Firmware-Update.
 
+## English
 
-# TCChibiOFS — Total Commander File System Plugin
+# TCChibiOSFS — Total Commander File System Plugin
 
 WFX plugin for **Total Commander** for connecting ChibiOS-based
 USB devices via serial shell. Detected devices:
@@ -214,7 +206,7 @@ USB devices via serial shell. Detected devices:
 ## Requirements
 
 - Windows 7 or newer
-- Total Commander 9.0 or newer (64-bit recommended)
+- Total Commander 9.0 or newer (64-bit)
 - Mayhem firmware ≥ 2.0 on HackRF/PortaPack
 - Flipper Zero with current firmware (Stock, Unleashed, Momentum, Xtreme — all okay)
 - USB cable (the usual kind)
@@ -222,39 +214,20 @@ USB devices via serial shell. Detected devices:
 ## Installation (recommended: integrated TC installer)
 
 1. Get the build artifacts:
-   - `tcchibiofs.wfx` (32-bit) and/or
-   - `tcchibiofs.wfx64` (64-bit)
-2. Put both files together with `pluginst.inf` into a ZIP archive.
+   - `chibiosfs.wfx64` (64-bit)
+2. Put files together with `pluginst.inf` into a ZIP archive.
 3. Open the ZIP in Total Commander (just click it) — it recognizes
    the plugin installation and asks for the target directory.
 
 ## Manual installation
 
-1. Copy `tcchibiofs.wfx` (+ `tcchibiofs.wfx64`) into a folder,
-   e.g. `%APPDATA%\\GHISLER\\tcchibiofs\\`
+1. Copy `chibiosfs.wfx64`) into a folder,
+   e.g. `%COMMANDER_PATH%\plugins\wfx\chibiosfs\`
 2. In Total Commander: **Configuration → Options → Plugins → Configure**
    (under “File system plugins”)
-3. Click **New**, select `tcchibiofs.wfx`, assign a name (e.g.
+3. Click **New**, select `chibiosfs.wfx`, assign a name (e.g.
    “ChibiOS Devices”)
 4. Open it via **Network Neighborhood** (or type `\\`) → “ChibiOS Devices”
-
-## Building from source
-
-### Lazarus / FreePascal (recommended, free)
-
-```cmd
-build-lazarus.bat both
-```
-
-produces `tcchibiofs.wfx` and `tcchibiofs.wfx64` in the project directory.
-
-### Delphi
-
-```cmd
-rem load Delphi environment once
-call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"
-build.bat both
-```
 
 ## Path mapping
 
@@ -296,7 +269,7 @@ of one shared `/`.
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│ Total Commander <──> tcchibiofs.wfx / .wfx64           │
+│ Total Commander <──> chibiosfs.wfx / .wfx64           │
 ├────────────────────────────────────────────────────────┤
 │ uWfxMain          (WFX exports, plugin lifecycle)      │
 │ uDeviceRegistry   (open connections, path split)       │
